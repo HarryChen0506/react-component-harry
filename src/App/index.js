@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Example from '../example/Example';
 import AppRoute from '../router';
 
 class App extends Component {

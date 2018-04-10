@@ -1,7 +1,7 @@
 //新闻组件 News
 import React from 'react';
 import NewsBox from '../NewsBox';
-import { ImageViewer } from '../../lib/components'
+import { ImageViewer } from '../../../lib/components'
 
 // import { ImageViewer } from '../../../dist/react-component-harry.js'
 class News extends React.Component {  
