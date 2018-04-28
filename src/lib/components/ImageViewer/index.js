@@ -63,6 +63,7 @@ class ImagePreviewer extends React.Component {
   }
   unbindImages(){
      //解绑   
+     this.wrapperNode = ReactDOM.findDOMNode(this.el);
       this.unbindEnent(this.wrapperNode, 'click', this.imageBindFunc)    
   }
   getChildrenImages(){

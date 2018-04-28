@@ -1,16 +1,15 @@
 //导航组件
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import './nav.scss'
 
 class Nav extends React.Component {
     render(){
         return (
-            <div>
-                <Link to='/demo'>demo</Link>
-                <Link to='/hello'>hello</Link>
-                <Link to='/imageViewer'>imageViewer</Link>
-            </div>
+            <div className="nav">
+               {this.props.children}
+            </div>  
         ) 
     }
 }
