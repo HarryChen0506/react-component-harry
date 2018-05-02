@@ -8,6 +8,7 @@ class JsTool extends React.Component {
     constructor(...args){
         super(...args);
         this.find = this.find.bind(this);
+        this.before = this.before.bind(this);
         this.state = {
             // find: [{
             //     name: '张三',age: 14,gender: 'male'
@@ -38,11 +39,21 @@ class JsTool extends React.Component {
         });
         console.log('filter', filter)        
     }
+    before(){
+        const once = jsTool.before(3,(v)=>{
+            console.log(123, this);
+            return 456
+        })
+
+        console.log(once('abc'))
+        console.log(once())
+    }
     render(){
         return (
             <div>
                 <div>JsTool</div>
                 <button onClick={this.find}>find</button>
+                <button onClick={this.before}>before</button>
             </div>             
         )
     }

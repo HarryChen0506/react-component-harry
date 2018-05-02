@@ -5,7 +5,6 @@ const isType = function(type){
         return Object.prototype.toString.call(obj) === '[object '+type+']'
     }
 }
-
 /** 
  * @param {Array|Object} collection 
  * @param {Function} predicate
@@ -20,7 +19,6 @@ const findIndex = function(collection, predicate){
     }
     return -1
 }
-
 
 /** 
  * Iterates over collection 遍历集合。 找到匹配项
@@ -47,8 +45,30 @@ const find = function(collection, predicate){
     }
 }
 
+/**
+ * 有限次数执行函数，并且返回最近调用时的结果
+ * @param {*} n 第n次执行函数时，func不再执行
+ * @param {*} func 
+ */
+function before(n, func){
+    let result
+    if(typeof func !=='function'){
+        throw new TypeError('Expected a function')
+    }
+    return function(...args){
+        if(--n > 0){
+            return result = func.apply(this, args)
+        }
+        if(n<=1){
+            func = undefined  //清除闭包引用，清理内存
+        }
+        return result
+    }
+}
+
 const jsTool = {
-    find
+    find,
+    before
 }
 
 export default jsTool
